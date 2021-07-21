@@ -2,7 +2,7 @@
 
 """
     A python 3 script to reboot Safaricom Echolife routers.
-    Tested on: HG8245H.
+    Tested on: Huawei HG8245H
     Author: e13olf
 """
 
