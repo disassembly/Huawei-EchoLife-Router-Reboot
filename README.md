@@ -1,4 +1,4 @@
-# A python 3 script to remotely reboot Safaricom Echolife Huawei routers.
+# py3 script to remotely reboot Echolife Huawei routers.
     Tested on: HG8245H
 	
 <p align="center">
