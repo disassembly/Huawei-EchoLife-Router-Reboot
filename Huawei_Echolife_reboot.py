@@ -89,9 +89,7 @@ def login(user, passwd, token):
 #Get hw token paramaters
 def getHWToken(cookies):
     r = cGet(DEVICE_URL, verify=False, cookies=cookies)
-    # print(r.request.headers)
     if r.ok:
-        # print('hwonttoken' in r.text)
         m = re.search(HW_TOKEN_PATTERN, r.text)
         if m and m.group(1):
             return m.group(1)
