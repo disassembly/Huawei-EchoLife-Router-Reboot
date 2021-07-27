@@ -130,18 +130,18 @@ def doReboot(args):
 
     token = getToken()
     if not token:
-        print('no token, abort')
+        print('No token, aborting!')
         return
     print('Token:', token)
     cookies = login(args.USER, args.PASS, token)
     print('Cookies:', cookies)
     if not cookies:
-        print('no cookies, abort.')
+        print('No cookies, aborting!')
         return
     token = getHWToken(cookies)
     print('hwToken:', token)
     if not token:
-        print('No hw token, abort.')
+        print('No hw token, aborting!')
         return
     reboot(cookies, token)
     print('Device Rebooted!')
