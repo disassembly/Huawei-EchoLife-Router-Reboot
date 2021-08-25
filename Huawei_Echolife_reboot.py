@@ -16,7 +16,7 @@ import requests
 import urllib3
 urllib3.disable_warnings()
 
-#User Input Args
+# User Input Args
 def parse_args():
     parser = argparse.ArgumentParser(
            formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -61,7 +61,7 @@ def cGet(url, params=None, **kwargs):
 def cPost(url, data=None, **kwargs):
     return requests.post(url, data, headers=HEADERS, timeout=10, **kwargs)
 
-#Get hw token paramater from server
+# Get hw token paramater from server
 def getToken():
     r = cPost(RAND_COUNT_URL, verify=False, cookies=COOKIE_DEFAULT)
     if r.ok and r.text:
@@ -70,7 +70,7 @@ def getToken():
         print('Failed to get token, reason:', r.status_code)
 
 
-#Login and retrive cookies
+# Login and retrive cookies
 def login(user, passwd, token):
     username = user
     password = base64.b64encode(passwd.encode('utf-8')).decode("utf-8")
@@ -86,7 +86,7 @@ def login(user, passwd, token):
         print('Failed to login: Invalid Creds?')
 
 
-#Get hw token paramaters
+# Get hw token paramaters
 def getHWToken(cookies):
     r = cGet(DEVICE_URL, verify=False, cookies=cookies)
     if r.ok:
@@ -97,7 +97,7 @@ def getHWToken(cookies):
             print('Failed to get hw token, reason:', r.status_code)
 
 
-#Reboot device using cookies and hw token
+# Reboot device using cookies and hw token
 def reboot(cookies, token):
     try:
         r = cPost(REBOOT_URL, params=REBOOT_PARAMS, verify=False, data={
@@ -114,7 +114,7 @@ def reboot(cookies, token):
     except Exception as e:
         print('Failed to reboot device, reason:', e)
 
-#Check user input_args        
+# Check user input_args        
 def input_check(args):
 
     if not args.USER:
